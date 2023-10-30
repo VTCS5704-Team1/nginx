@@ -1,6 +1,6 @@
 name: Verify Docker Image
 on:
-  merge_request:
+  pull_request:
     branches:
       - main
 
