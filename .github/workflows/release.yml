@@ -21,4 +21,4 @@ jobs:
       - name: 'Build NGINX container'
         run: |
           docker build . --tag ghcr.io/${{ secrets.GH_USER }}/store:latest
-          docer push ghcr.io/${{ secrets.GH_USER }}/store:latest
+          docker push ghcr.io/${{ secrets.GH_USER }}/store:latest
