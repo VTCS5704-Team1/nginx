@@ -1,0 +1,13 @@
+name: Verify a Docker image
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  push-store-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Build NGINX container'
+        run: |
+          docker build .
