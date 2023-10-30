@@ -1,17 +1,13 @@
-name: Verify Docker Image
-on:
+name: Build a Docker image
+
   pull_request:
     branches:
       - main
 
 jobs:
-  build:
-    name: Build Docker image
+  push-store-image:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-
     steps:
-      - name: Build Docker Image
-        uses: docker/build-action@v1
+      - name: 'Build NGINX container'
+        run: |
+          docker build
