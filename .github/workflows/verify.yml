@@ -1,5 +1,6 @@
-name: Build a Docker image
+name: Build a Docker image to ghcr.io
 
+on:
   pull_request:
     branches:
       - main
@@ -10,4 +11,4 @@ jobs:
     steps:
       - name: 'Build NGINX container'
         run: |
-          docker build
+          docker build .
