@@ -1,0 +1,13 @@
+name: Build a Docker image to ghcr.io
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push-store-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Build NGINX container'
+        run: |
+          docker build . --tag ghcr.io/${{ secrets.GH_USER }}/core/vib:latest
