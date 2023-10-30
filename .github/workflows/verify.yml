@@ -1,4 +1,4 @@
-name: Build a Docker image to ghcr.io
+name: Verify a Docker image
 on:
   pull_request:
     branches:
