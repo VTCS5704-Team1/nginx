@@ -1,0 +1,17 @@
+name: Verify Docker Image
+on:
+  merge_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Build Docker Image
+        uses: docker/build-action@v1
