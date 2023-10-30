@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: 'Build NGINX container'
         run: |
-          docker build . --tag ghcr.io/${{ secrets.GH_USER }}/core/vib:latest
+          docker build .
