@@ -21,4 +21,4 @@ jobs:
       - name: 'Build NGINX container'
         run: |
           docker build . --tag ghcr.io/${{ var.ORG_NAME }}/core/vib:latest
-          docker push ghcr.io/${{ secrets.ORG_NAME }}/core/vib:latest
+          docker push ghcr.io/${{ var.ORG_NAME }}/core/vib:latest
