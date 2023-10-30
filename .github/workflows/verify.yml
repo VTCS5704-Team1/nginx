@@ -1,6 +1,6 @@
 name: Build a Docker image to ghcr.io
 on:
-  push:
+  pull_request:
     branches:
       - main
 
