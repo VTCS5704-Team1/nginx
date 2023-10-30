@@ -5,20 +5,28 @@ on:
       - main
 
 jobs:
-  push-store-image:
+  push_to_ghcr.io:
+    name: Push Docker image to GHCR
     runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout GitHub Action'
-        uses: actions/checkout@main
 
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+    steps:
+      - name: Log into Container Register:
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
           registry: ghcr.io
           username: ${{ secrets.GH_USER }}
           password: ${{ secrets.GH_TOKEN }}
       
-      - name: 'Build NGINX container'
-        run: |
-          docker build . --tag ghcr.io/${{ var.ORG_NAME }}/core/vib:latest
-          docker push ghcr.io/${{ var.ORG_NAME }}/core/vib:latest
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: ghcr.io/vib/core
+
+      - name: Build and push Docker Images
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.output.tags }}
+          labels: ${{ steps.meta.output.labels }}
