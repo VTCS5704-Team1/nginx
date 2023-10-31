@@ -30,4 +30,4 @@ jobs:
         uses: docker/build-push-action@v4.1.1
         with:
           push: true
-          tags: ghcr.io/vtcs5704-team1/vib/nginx:latest, ghcr.io/vtcs5704-team1/vib/nginx:${{ github.sha }}
+          tags: ghcr.io/vtcs5704-team1/nginx/vib:latest, ghcr.io/vtcs5704-team1/nginx/vib:${{ github.sha }}
