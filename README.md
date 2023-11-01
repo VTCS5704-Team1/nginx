@@ -1,2 +1,3 @@
 # nginx
-nginx container for Frontend
+* nginx container for Frontend
+* Runs on Port 3000
